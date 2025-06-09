@@ -1,3 +1,5 @@
+import * as  dotenv from "dotenv";
+dotenv.config({ path: '.env.local' }); 
 import { faker } from '@faker-js/faker';
 import { Category } from "../models/Category";
 import { connectDB } from "../config/db";

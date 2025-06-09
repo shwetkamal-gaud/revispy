@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
             <main className="flex-grow h-full flex">
               {children}
             </main>
+            <ToastContainer/>
           </ThemeProvider>
         </AuthContextProvider>
       </body>

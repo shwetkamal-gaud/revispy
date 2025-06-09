@@ -26,5 +26,5 @@ export async function POST(req: Request) {
     deleteOtp(email)
 
     generateTokenAndSetCookie(user._id?.toString()??'')
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ message: 'OTP verified', _id: user._id, interests: user.inresets, name: user.name, email: user.email })
 }

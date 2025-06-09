@@ -13,7 +13,11 @@ const userSchema = new Schema<IUser>({
     email: { type: String, unique: true },
     password: String,
     isVerified: { type: Boolean, default: false },
-    interests: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
+    interests: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Category',
+        default: [],
+      }
 }, { timestamps: true });
 
 export const User = models?.User || model<IUser>("User", userSchema);

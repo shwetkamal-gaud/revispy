@@ -2,7 +2,7 @@ export interface User {
   _id: string,
   name: string,
   email: string,
-  profilePic: string
+  interests: string[]
 }
 
 export interface Payload {
@@ -10,6 +10,7 @@ export interface Payload {
   name?: string,
   password: string,
   gender?: string,
-  role?:string,
+  role?: string,
   profilePicture?: string
+
 }
