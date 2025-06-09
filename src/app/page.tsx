@@ -50,7 +50,7 @@ export default function Home() {
     const data = await res.json();
     if (data?.interests) {
       toast.success(data.message)
-      setSelected((prevSelected) => [...data.interests]);
+      setSelected([...data.interests]);
     }
   };
 
