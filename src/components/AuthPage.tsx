@@ -11,7 +11,6 @@ import { ArrowRight } from "lucide-react";
 
 
 const AuthPage = ({ type }: { type: "login" | "signup" }) => {
-    const [useOTP, setUseOTP] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [otpRequested, setOtpRequested] = useState(false);
@@ -153,22 +152,6 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                             />
 
 
-                            {useOTP && otpRequested && (
-                                <div className="flex gap-2 justify-center">
-                                    {otp.map((digit, index) => (
-                                        <input
-                                            key={index}
-                                            id={`otp-${index}`}
-                                            type="text"
-                                            maxLength={1}
-                                            className="w-12 h-12 text-center text-xl border rounded"
-                                            value={digit}
-                                            onChange={(e) => handleOtpChange(index, e.target.value)}
-                                            onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                                        />
-                                    ))}
-                                </div>
-                            )}
 
 
                             <button

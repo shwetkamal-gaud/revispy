@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { faker } from '@faker-js/faker';
 import { Category } from "../models/Category";
 import { connectDB } from "../config/db";

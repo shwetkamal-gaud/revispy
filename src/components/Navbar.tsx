@@ -1,7 +1,7 @@
 "use client"
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Menu, MoveLeft, MoveRight, Search, ShoppingCart, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Menu,  Search, ShoppingCart, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
