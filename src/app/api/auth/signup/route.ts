@@ -14,7 +14,6 @@ export async function POST(req: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 10)
     const otp = generateOtp()
-    const otpExpiresAt = new Date(Date.now() + 5 * 60 * 1000)
 
     if (userExists && userExists.isVerified) {
         return NextResponse.json({ error: 'User already exists' }, { status: 400 })

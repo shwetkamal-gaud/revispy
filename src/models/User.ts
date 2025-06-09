@@ -4,7 +4,8 @@ interface IUser extends Document {
     name: string,
     email: string,
     password: string,
-    isVerified: boolean
+    isVerified: boolean,
+    interests: Schema.Types.ObjectId[]
 }
 
 const userSchema = new Schema<IUser>({
@@ -12,6 +13,7 @@ const userSchema = new Schema<IUser>({
     email: { type: String, unique: true },
     password: String,
     isVerified: { type: Boolean, default: false },
+    interests: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
 }, { timestamps: true });
 
 export const User = models?.User || model<IUser>("User", userSchema);

@@ -1,7 +1,7 @@
 "use client"
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, Search, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Menu, MoveLeft, MoveRight, Search, ShoppingCart, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
@@ -11,10 +11,11 @@ import { useAuthContext } from '@/context/AuthContext'
 
 
 const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Chat', href: '/chat' },
-    { label: 'Match Engine', href: '/match' },
+    { label: 'Categories', href: '/' },
+    { label: 'Sale', href: '/' },
+    { label: 'Clearance', href: '/' },
+    { label: 'New Stock', href: '/' },
+    { label: 'Trending', href: '/' },
 ]
 
 const Navbar = () => {
@@ -34,8 +35,8 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="sticky top-0 z-50 w-full  shadow-md  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className='flex items-center justify-end'>
+        <nav className="sticky top-0 z-50 w-full    pt-3  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className='flex items-center px-4 sm:px-6 lg:px-8 justify-end'>
                 {['Help', 'Order & Returns', 'Hi, John'].map((link) => (
                     <Link
                         key={link}
@@ -46,14 +47,14 @@ const Navbar = () => {
                     </Link>
                 ))}
             </div>
-            <div className="mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8  h-16 flex items-center justify-between">
                 <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
                     <h1 className='dark:text-white text-black text-3xl uppercase'>Ecommerce</h1>
                 </div>
                 <div className="hidden md:flex gap-8">
                     {navLinks.map(link => (
                         <Link
-                            key={link.href}
+                            key={link.label}
                             href={link.href}
                             className="text-gray-700 dark:text-gray-100 hover:text-indigo-600 transition"
                         >
@@ -63,7 +64,7 @@ const Navbar = () => {
                 </div>
                 <div className=" flex items-center dark:text-white text-black md:gap-8 gap-2">
                     <Search />
-
+                    <ShoppingCart />
                     <ThemeToggle />
                     <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
                         {mobileOpen ? <X className='dark:text-white text-black' size={24} /> : <Menu className='dark:text-white text-black' size={24} />}
@@ -102,6 +103,12 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <div className='bg-[#F4F4F4] py-1 flex items-center justify-center gap-3'>
+                <ChevronLeft />
+                Get 10% off on business sign up
+                <ChevronRight />
+            </div>
         </nav>
     )
 }

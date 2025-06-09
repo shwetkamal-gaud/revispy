@@ -17,8 +17,6 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
     const [otpRequested, setOtpRequested] = useState(false);
     const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
     const [name, setName] = useState("");
-    const [gender, setGender] = useState("");
-    const [role, setRole] = useState("");
     const router = useRouter()
     const { setAuthUser } = useAuthContext()
     const handleOtpChange = (index: number, value: string) => {
