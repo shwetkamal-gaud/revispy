@@ -102,8 +102,8 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
             }
             else {
                 setOtpRequested(true)
-                toast.success(data?.meassage || ``)
             }
+            toast.success(data?.message || ``)
 
         } else {
             toast.error(data?.error || `${type} Failed`)
