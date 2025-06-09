@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="inline-flex items-center dark:text-white dark:hover:text-black text-black justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium hover:bg-black dark:hover:bg-white h-10 w-10"
+            className="inline-flex items-center hover:text-white dark:text-white dark:hover:text-black text-black justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium hover:bg-black dark:hover:bg-white h-10 w-10"
         >
             {theme === "light" ? <MoonIcon /> :  <SunIcon />}
         </button>

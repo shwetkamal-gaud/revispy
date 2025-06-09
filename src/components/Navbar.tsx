@@ -68,7 +68,7 @@ const Navbar = () => {
                     <ShoppingCart />
                     <ThemeToggle />
                     {authUser !== null ? (
-                        <div className='flex gap-2 items-center'>
+                        <div className='hidden md:flex gap-2 items-center'>
                             <span>{authUser?.name}</span>
                             <button onClick={handleLogout} className="btn bg-black text-white rounded-md px-3 h-9 self-center items-center hidden md:flex">Logout</button>
                         </div>

@@ -31,10 +31,14 @@ export default function Home() {
   }, [page]);
 
   useEffect(() => {
-    if (authUser?._id) {
-
-      setSelected(authUser?.interests || []);
-    }
+    const fetchUserdata = async () => {
+      if (authUser && !loading) {
+        const userRes = await fetch(`/api/user/${authUser?._id}`);
+        const data = await userRes.json();
+        setSelected([...data?.interests]);
+      }
+    };
+    fetchUserdata();
   }, [authUser]);
   const handleToggle = async (categoryId: string) => {
     const res = await fetch(`/api/user/interests/${categoryId}`, {
@@ -46,14 +50,14 @@ export default function Home() {
     const data = await res.json();
     if (data?.interests) {
       toast.success(data.message)
-      setSelected([...data.interests]);
+      setSelected((prevSelected) => [...data.interests]);
     }
   };
 
   if (!authUser) return null;
 
   return (
-    <div className="max-w-lg m-auto dark:bg-[#2e2d2b]  border border-[#C1C1C1] p-6 rounded-lg">
+    <div className="max-w-lg m-auto dark:bg-[#2e2d2b]  border border-[#C1C1C1] md:p-6 p-3 rounded-lg">
       <h2 className="text-[32px] dark:text-white/80 font-bold mb-2 text-center">Please mark your interests!</h2>
       <p className="my-4 border-b dark:text-white/70 border-[#EAEAEA] text-center">We will keep you notified.</p>
 

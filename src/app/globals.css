@@ -40,3 +40,10 @@ a {
 input[type="checkbox"] {
   accent-color: black;
 }
+
+.dark{
+  input[type="checkbox"] {
+      accent-color: white; 
+      background-color: gray;
+    }
+}
