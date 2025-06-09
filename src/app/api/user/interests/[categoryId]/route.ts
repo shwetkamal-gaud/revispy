@@ -1,15 +1,15 @@
 import { connectDB } from "@/config/db";
 import { User } from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
-
+type tParams = Promise<{ categoryId: string }>;
 export async function PATCH(
     req: NextRequest,
-    context: { params: { categoryId: string } }
+    context: { params: tParams }
 ) {
     try {
         await connectDB();
 
-        const { categoryId } = context.params;
+        const { categoryId } = await context.params;
         const { userId } = await req.json();
 
         if (!userId || !categoryId) {

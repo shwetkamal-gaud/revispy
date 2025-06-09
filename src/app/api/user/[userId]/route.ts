@@ -1,10 +1,11 @@
 import { User } from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
-
+type tParams = Promise<{ userId: string }>;
 export async function GET(req: NextRequest,
-    context: { params: { userId: string } }) {
+    context: { params: tParams }
 
-    const { userId } = context.params
+) {
+    const { userId } = await context.params
     if (!userId) return NextResponse.json({ message: "User ID is required" }, { status: 400 });
 
     const user = await User.findById(userId);
