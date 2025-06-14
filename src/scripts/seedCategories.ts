@@ -9,7 +9,7 @@ async function seedCategories() {
     await Category.deleteMany({});
     const categories = Array.from({ length: 100 }, () => ({ name: faker.commerce.department() }));
     await Category.insertMany(categories);
-    console.log("✅ Seeded 100 categories");
+    console.log("Seeded 100 categories");
     process.exit();
 }
 

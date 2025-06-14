@@ -1,6 +1,6 @@
 import redisClient from "../config/redisConfig";
 
-const OTP_EXPIRATION = 300; // 5 minutes
+const OTP_EXPIRATION = 300; 
 
 export const setOtp = async (email: string, otp: string) => {
     await redisClient.setEx(email, OTP_EXPIRATION, otp);

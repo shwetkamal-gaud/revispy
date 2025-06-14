@@ -78,7 +78,6 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
     };
 
     const handleLoginOrSignup = async () => {
-
         const url = type === "signup" ? `/api/auth/signup` : `/api/auth/login`;
         const payload: Payload = { email, password };
 
